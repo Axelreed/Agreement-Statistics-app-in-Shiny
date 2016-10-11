@@ -1,9 +1,10 @@
-# word cloud in shiny, check their input. Use a function to change the data to dat. 
 
+# Load Shiny and statistical packages
 library(shiny)
-# Loading package for Kappa test
 
+# Loading package for Kappa test
 library(fmsb)
+
 # Loading package for Cronbach's alpha
 library(psy)
 
@@ -15,12 +16,15 @@ library(lsr)
 
 # Generating simulated data
 set.seed(1234)
+
 # Ordinal
 ordin1<- sample(c(1,2,3,4), 20, TRUE)
 ordin2 <- sample(c(5,7,8,9), 20, TRUE)
+
 #Continuous/interval
 conti1 <- c(10:29)
 conti2 <- round(seq(1, 10, length.out= 20), 2)
+
 # Categorical
 categor1 <- rbinom(20,1,0.4)
 categor2 <- rbinom(20,1,0.6)
@@ -86,5 +90,3 @@ server <- function(input, output){
 }
 
 shinyApp(ui = ui, server = server)
-
-
